@@ -1,0 +1,17 @@
+#App,
+#root {
+    height: 100%;
+    width: 100%;
+}
+#Heading {
+    display: flex;
+    background: var(--gray-700);
+    height: 66.75%;
+    width: 100%;
+}
+
+#Footer {
+    display: flex;
+    height: 33.25%;
+    width: 100%;
+}

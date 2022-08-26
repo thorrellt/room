@@ -1,0 +1,17 @@
+#Heading .img{
+    height: 100%;
+    flex-basis: 52.5rem;
+    flex-shrink: 1;
+    flex-grow: 3;
+    background: green;
+    outline: 3px, solid black;
+}
+
+#Heading .content{
+    height: 100%;
+    flex-basis: 37.5rem;
+    flex-shrink: 0;
+    flex-grow: 1;
+    background: blue;
+    outline: 3px, solid black;
+}
