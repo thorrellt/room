@@ -1,0 +1,34 @@
+nav {
+    width: 22.625rem;
+    position: fixed;
+    display: flex;
+    top: 8%;
+    left: 4.4%;
+    background: none;
+    justify-content: space-between;
+}
+
+nav img {
+    display: inline;
+    height: .813rem;
+    width: 3.875rem;
+}
+
+nav ul{
+    display: flex;
+    top: 8%;
+    left: 4.4%;
+    background: none;
+    width: 15.25rem;
+    justify-content: space-between;
+}
+
+nav ul li{
+    text-decoration: none;
+    color: white;
+}
+
+nav ul li a{
+    text-decoration: none;
+    color: white;
+}
