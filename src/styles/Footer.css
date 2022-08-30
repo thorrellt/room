@@ -9,7 +9,7 @@
 #Footer .img-2{
     height: 100%;
     flex-shrink: 1;
-    flex-grow: 3;
+    flex-grow: 1;
 }
 
 #Footer .content{

@@ -4,6 +4,8 @@ import mainImg1 from '../assets/desktop-image-hero-1.jpg'
 import aboutDark from '../assets/image-about-dark.jpg'
 import aboutLight from '../assets/image-about-light.jpg'
 import arrow from '../assets/icon-arrow.svg'
+import leftAngle from '../assets/icon-angle-left.svg'
+import rightAngle from '../assets/icon-angle-right.svg'
 
 
 export default function Header() {
@@ -26,6 +28,14 @@ export default function Header() {
                     </h3>
                     <img className='arrow' src={arrow} alt="" />
                 </a>
+                <div className="angle-box">
+                    <a href="#">
+                    <img src={leftAngle} alt="" />
+                    </a>
+                    <a href="#">
+                    <img src={rightAngle} alt="" />
+                    </a>
+                </div>
 
 
             </div>
