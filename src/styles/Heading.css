@@ -4,7 +4,7 @@
     flex-shrink: 1;
     flex-grow: 3;
     background: green;
-    outline: 3px, solid black;
+    /* outline: 3px, solid black; */
 }
 
 #Heading .content{
@@ -12,6 +12,29 @@
     flex-basis: 37.5rem;
     flex-shrink: 0;
     flex-grow: 1;
-    background: blue;
-    outline: 3px, solid black;
+    background: white;
+    padding-inline: 6.25rem;
+    padding-block-start: 7.5rem;
+    /* outline: 3px, solid black; */
+}
+
+#Heading .content p{
+    margin-block-start: 1.125rem;
+}
+
+#Heading .content a{
+    margin-block-start: 1.625rem;
+    text-decoration: none;
+    display: flex;
+}
+
+#Heading .content h3{
+    
+    text-transform: uppercase;
+}
+
+#Heading .content .arrow{
+    margin-inline-start: 1.875rem;
+    height: .75rem;
+    width: 2.5rem;
 }
