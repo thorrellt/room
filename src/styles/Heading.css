@@ -60,14 +60,20 @@
     height: 80px;
     cursor:pointer;
     pointer-events: auto;
+    
 }
 
 .Heading .content .angle-box button:active{
     background-color: var(--gray-900);
 }
 
+.Heading .content .angle-box button:hover > img{
+    transform: scale(1.5);
+}
+
 .Heading .content .angle-box img{
     color: white;
     height: 24px;
     width: 12px;
+    transition: all .2s ease-in-out;
 }

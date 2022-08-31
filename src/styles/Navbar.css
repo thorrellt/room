@@ -22,6 +22,7 @@ nav ul{
     background: none;
     width: 15.25rem;
     justify-content: space-between;
+    align-items:flex-start;
 }
 
 nav ul li{
@@ -32,4 +33,9 @@ nav ul li{
 nav ul li a{
     text-decoration: none;
     color: white;
+    transition: all .2s ease-in-out;
+}
+
+nav ul li a:hover{
+    font-size: 1.2rem;
 }
