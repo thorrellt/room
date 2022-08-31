@@ -1,45 +1,83 @@
 .heading-container-enter {
     opacity: 0;
-    transform: scale(0.9);
+    /* z-index: -1; */
+    transform: translateX(-1500px);
 }
 
 .heading-container-enter-active {
+    /* z-index: 1; */
     opacity: 1;
-    transform: translateX(0);
-    transition: opacity 300ms, transform 300ms;
+    animation: enterFromLeft 1s ease-in-out;
+    animation-delay: 10ms;
 }
 
 .heading-container-exit {
+    /* z-index: 1; */
     opacity: 1;
 }
 
 .heading-container-exit-active {
+    animation: exitToRight 1s ease-in-out;
     opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 300ms, transform 300ms;
+    animation-delay: 10ms;
+}
+
+@keyframes enterFromLeft {
+    0% {
+        transform: translateX(-1500px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+@keyframes exitToRight {
+    0% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(1500px);
+        opacity: 0;
+    }
 }
 
 
+
 .Heading .img {
+    position: relative;
     height: 100%;
     flex-basis: 52.5rem;
     flex-shrink: 1;
     flex-grow: 2;
-    background: green;
+    overflow: hidden;
     /* outline: 3px, solid black; */
 }
+.Heading .img img{
+    position: absolute;
+    height: 100%;
+}
 
-.Heading .content {
+.Heading .content-wrapper {
     position: relative;
     height: 100%;
     flex-basis: 37.5rem;
     flex-shrink: 0;
     flex-grow: 1;
     background: white;
+    overflow: hidden;
+}
+
+.Heading .content {
+
     padding-inline: 6.25rem;
     padding-block-start: 7.5rem;
     /* outline: 3px, solid black; */
 }
+
 
 .Heading .content p {
     margin-block-start: 1.125rem;
@@ -61,20 +99,20 @@
     margin-inline-start: 1.875rem;
     height: .75rem;
     width: 2.5rem;
-    
+
 }
 
-.main .angle-box {
+.Heading .angle-box {
     display: flex;
     width: 200px;
-    position: fixed;
+    position: absolute;
     bottom: 0;
     left: 0;
     pointer-events: none;
     z-index: 5;
 }
 
-.main  .angle-box button {
+.Heading .angle-box button {
     flex-basis: 50%;
     display: flex;
     margin-block-start: 0;
@@ -87,15 +125,15 @@
 
 }
 
-.main .angle-box button:active {
+.Heading .angle-box button:active {
     background-color: var(--gray-900);
 }
 
-.main  .angle-box button:hover>img {
+.Heading .angle-box button:hover>img {
     transform: scale(1.5);
 }
 
-.main  .angle-box img {
+.Heading .angle-box img {
     color: white;
     height: 24px;
     width: 12px;

@@ -19,7 +19,7 @@ import data from '../data.js'
 export default function Header(props) {
 
     const { title, content, id } = props
-    const [currId, setCurrId] = useState(() => 0)
+    const [currId, setCurrId] = useState(() => 1)
     const [inProp, setInProp] = useState(true);
     let heroImg
     switch (currId) {
@@ -48,103 +48,144 @@ export default function Header(props) {
 
     return (
 
-        <div className="main">
-            <TransitionGroup>
-                {currId === 0 &&
-                    <CSSTransition
-                        in={inProp}
-                        timeout={1000}
-                        mountOnEnter
-                        unmountOnExit
-                        classNames="heading-container">
-                        <section className={`Heading heading${currId}`}>
-                            <div className="img">
-                                <img src={heroImg} alt="hero image" />
-                            </div>
-                            <div className="content">
-                                <h1>
-                                    {data[currId].title}
-                                </h1>
-                                <p>
-                                    {data[currId].content}
-                                </p>
-                                <a href="#">
-                                    <h3>
-                                        shop now
-                                    </h3>
-                                    <img className='arrow' src={arrow} alt="" />
-                                </a>
-                            </div>
-                        </section>
-                    </CSSTransition>
-                }
-                {currId === 1 &&
-                    <CSSTransition
-                        in={inProp}
-                        timeout={1000}
-                        mountOnEnter
-                        unmountOnExit
-                        classNames="heading-container">
-                        <section className={`Heading heading${currId}`}>
-                            <div className="img">
-                                <img src={heroImg} alt="hero image" />
-                            </div>
-                            <div className="content">
-                                <h1>
-                                    {data[currId].title}
-                                </h1>
-                                <p>
-                                    {data[currId].content}
-                                </p>
-                                <a href="#">
-                                    <h3>
-                                        shop now
-                                    </h3>
-                                    <img className='arrow' src={arrow} alt="" />
-                                </a>
-                            </div>
-                        </section>
-                    </CSSTransition>
-                }
-                {currId === 2 &&
-                    <CSSTransition
-                        in={inProp}
-                        timeout={1000}
-                        mountOnEnter
-                        unmountOnExit
-                        classNames="heading-container">
-                        <section className={`Heading heading${currId}`}>
-                            <div className="img">
-                                <img src={heroImg} alt="hero image" />
-                            </div>
-                            <div className="content">
-                                <h1>
-                                    {data[currId].title}
-                                </h1>
-                                <p>
-                                    {data[currId].content}
-                                </p>
-                                <a href="#">
-                                    <h3>
-                                        shop now
-                                    </h3>
-                                    <img className='arrow' src={arrow} alt="" />
-                                </a>
-                            </div>
-                        </section>
-                    </CSSTransition>
-                }
+        <section className={`Heading heading${currId}`}>
+            <div className="img">
+                <TransitionGroup>
+                    {currId === 0 &&
+                        <CSSTransition
+                            in={inProp}
+                            timeout={1000}
+                            mountOnEnter
+                            unmountOnExit
+                            classNames="heading-container">
 
-            </TransitionGroup>
-            <div className="angle-box">
-                <button onClick={prevHeading} href="#">
-                    <img src={leftAngle} alt="" />
-                </button>
-                <button onClick={nextHeading} href="#">
-                    <img src={rightAngle} alt="" />
-                </button>
+
+                            <img src={heroImg} alt="hero image" />
+
+                        </CSSTransition>
+                    }
+                    {currId === 1 &&
+                        <CSSTransition
+                            in={inProp}
+                            timeout={1000}
+                            mountOnEnter
+                            unmountOnExit
+                            classNames="heading-container">
+
+
+                            <img src={heroImg} alt="hero image" />
+
+                        </CSSTransition>
+                    }
+                    {currId === 2 &&
+                        <CSSTransition
+                            in={inProp}
+                            timeout={1000}
+                            mountOnEnter
+                            unmountOnExit
+                            classNames="heading-container">
+
+
+                            <img src={heroImg} alt="hero image" />
+
+                        </CSSTransition>
+                    }
+                </TransitionGroup>
             </div>
-        </div>
 
+
+
+            <div className="content-wrapper">
+                <TransitionGroup>
+                    {currId === 0 &&
+                        <CSSTransition
+                            in={inProp}
+                            timeout={1000}
+                            mountOnEnter
+                            unmountOnExit
+                            classNames="heading-container">
+
+                            <div className="content">
+                                <h1>
+                                    {data[currId].title}
+                                </h1>
+                                <p>
+                                    {data[currId].content}
+                                </p>
+                                <a href="#">
+                                    <h3>
+                                        shop now
+                                    </h3>
+                                    <img className='arrow' src={arrow} alt="" />
+                                </a>
+                            </div>
+                        </CSSTransition>
+                    }
+
+                    {currId === 1 &&
+                        <CSSTransition
+                            in={inProp}
+                            timeout={1000}
+                            mountOnEnter
+                            unmountOnExit
+                            classNames="heading-container">
+
+                            <div className="content">
+                                <h1>
+                                    {data[currId].title}
+                                </h1>
+                                <p>
+                                    {data[currId].content}
+                                </p>
+                                <a href="#">
+                                    <h3>
+                                        shop now
+                                    </h3>
+                                    <img className='arrow' src={arrow} alt="" />
+                                </a>
+                            </div>
+                        </CSSTransition>
+                    }
+
+                    {currId === 2 &&
+                        <CSSTransition
+                            in={inProp}
+                            timeout={1000}
+                            mountOnEnter
+                            unmountOnExit
+                            classNames="heading-container">
+
+                            <div className="content">
+                                <h1>
+                                    {data[currId].title}
+                                </h1>
+                                <p>
+                                    {data[currId].content}
+                                </p>
+                                <a href="#">
+                                    <h3>
+                                        shop now
+                                    </h3>
+                                    <img className='arrow' src={arrow} alt="" />
+                                </a>
+                            </div>
+                        </CSSTransition>
+                    }
+                </TransitionGroup>
+                <div className="angle-box">
+                    <button onClick={prevHeading} href="#">
+                        <img src={leftAngle} alt="" />
+                    </button>
+                    <button onClick={nextHeading} href="#">
+                        <img src={rightAngle} alt="" />
+                    </button>
+                </div>
+            </div>
+
+
+
+        </section>
     )
+
+
 }
