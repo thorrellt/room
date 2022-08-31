@@ -1,30 +1,24 @@
 .heading-container-enter {
     opacity: 0;
-    /* z-index: -1; */
-    transform: translateX(-1500px);
 }
 
 .heading-container-enter-active {
-    /* z-index: 1; */
-    opacity: 1;
-    animation: enterFromLeft 1s ease-in-out;
-    animation-delay: 10ms;
+    animation: enterFromLeft .75s ease-in-out;
 }
 
 .heading-container-exit {
-    /* z-index: 1; */
     opacity: 1;
+    transform: translateX(0px);
 }
 
 .heading-container-exit-active {
-    animation: exitToRight 1s ease-in-out;
-    opacity: 0;
+    animation: exitToRight .75s ease-in-out;
     animation-delay: 10ms;
 }
 
 @keyframes enterFromLeft {
     0% {
-        transform: translateX(-1500px);
+        transform: translateX(-100%);
         opacity: 0;
     }
 
@@ -40,7 +34,7 @@
     }
 
     100% {
-        transform: translateX(1500px);
+        transform: translateX(100%);
         opacity: 0;
     }
 }

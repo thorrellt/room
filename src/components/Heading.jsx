@@ -18,9 +18,13 @@ import data from '../data.js'
 
 export default function Header(props) {
 
+
     const { title, content, id } = props
     const [currId, setCurrId] = useState(() => 1)
-    const [inProp, setInProp] = useState(true);
+    const [inProp, setInProp] = useState(false);
+    const [inProp0, setInProp0] = useState(false);
+    const [inProp1, setInProp1] = useState(false);
+    const [inProp2, setInProp2] = useState(false);
     let heroImg
     switch (currId) {
         case 0: {
@@ -50,47 +54,19 @@ export default function Header(props) {
 
         <section className={`Heading heading${currId}`}>
             <div className="img">
-                <TransitionGroup>
-                    {currId === 0 &&
-                        <CSSTransition
-                            in={inProp}
-                            timeout={1000}
-                            mountOnEnter
-                            unmountOnExit
-                            classNames="heading-container">
+                <SwitchTransition>
+
+                    <CSSTransition
+                        key={String(currId)}
+                        timeout={750}
+                        mountOnEnter
+                        classNames="heading-container">
 
 
-                            <img src={heroImg} alt="hero image" />
+                        <img src={heroImg} alt="hero image" />
 
-                        </CSSTransition>
-                    }
-                    {currId === 1 &&
-                        <CSSTransition
-                            in={inProp}
-                            timeout={1000}
-                            mountOnEnter
-                            unmountOnExit
-                            classNames="heading-container">
-
-
-                            <img src={heroImg} alt="hero image" />
-
-                        </CSSTransition>
-                    }
-                    {currId === 2 &&
-                        <CSSTransition
-                            in={inProp}
-                            timeout={1000}
-                            mountOnEnter
-                            unmountOnExit
-                            classNames="heading-container">
-
-
-                            <img src={heroImg} alt="hero image" />
-
-                        </CSSTransition>
-                    }
-                </TransitionGroup>
+                    </CSSTransition>
+                </SwitchTransition>
             </div>
 
 
