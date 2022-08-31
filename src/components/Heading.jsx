@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
+import { SwitchTransition, CSSTransition } from 'react-transition-group';
 import '../styles/Heading.css'
 import heroImg0 from '../assets/desktop-image-hero-1.jpg'
 import heroImg1 from '../assets/desktop-image-hero-2.jpg'
@@ -11,18 +12,19 @@ import rightAngle from '../assets/icon-angle-right.svg'
 
 
 export default function Header(props) {
-    const {title, content, id} = props
+
+    const { title, content, id, nextHeading, prevHeading } = props
     let heroImg
-    switch(id){
-        case 0:{
+    switch (id) {
+        case 0: {
             heroImg = heroImg0;
             break;
         }
-        case 1:{
+        case 1: {
             heroImg = heroImg1;
             break;
         }
-        default:{
+        default: {
             heroImg = heroImg2;
             break;
         }
@@ -30,35 +32,34 @@ export default function Header(props) {
 
 
     return (
-        <section className = {`Heading heading${id}`}>
-            <div className="img">
-                <img src={heroImg} alt="hero image" />
-            </div>
-            <div className="content">
-                <h1>
-                    {title}
-                </h1>
-                <p>
-                    {content}
-                </p>
-                <a href="#">
-                    <h3>
-                        shop now
-                    </h3>
-                    <img className='arrow' src={arrow} alt="" />
-                </a>
-                <div className="angle-box">
-                    <button href="#">
-                    <img src={leftAngle} alt="" />
-                    </button>
-                    <button href="#">
-                    <img src={rightAngle} alt="" />
-                    </button>
+        
+            <section className={`Heading heading${id}`}>
+                <div className="img">
+                    <img src={heroImg} alt="hero image" />
                 </div>
-
-
-            </div>
-
-        </section>
+                <div className="content">
+                    <h1>
+                        {title}
+                    </h1>
+                    <p>
+                        {content}
+                    </p>
+                    <a href="#">
+                        <h3>
+                            shop now
+                        </h3>
+                        <img className='arrow' src={arrow} alt="" />
+                    </a>
+                    <div className="angle-box">
+                        <button onClick={prevHeading} href="#">
+                            <img src={leftAngle} alt="" />
+                        </button>
+                        <button onClick={nextHeading} href="#">
+                            <img src={rightAngle} alt="" />
+                        </button>
+                    </div>
+                </div>
+            </section>
+        
     )
 }
