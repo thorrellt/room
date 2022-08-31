@@ -35,7 +35,7 @@ function App() {
   return (
     <div id="App">
       <Navbar />
-      <TransitionGroup>
+      {/* <TransitionGroup>
         {currId === 0 &&
           <CSSTransition
             in={inProp}
@@ -85,7 +85,15 @@ function App() {
             />
           </CSSTransition>
         }
-      </TransitionGroup>
+      </TransitionGroup> */}
+      <Header
+              title={data[currId].title}
+              content={data[currId].content}
+              id={data[currId].id}
+              nextHeading={nextHeading}
+              prevHeading={prevHeading}
+              currId={currId}
+            />
       <Footer />
     </div>
   )

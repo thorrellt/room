@@ -61,18 +61,20 @@
     margin-inline-start: 1.875rem;
     height: .75rem;
     width: 2.5rem;
+    
 }
 
-.Heading .content .angle-box {
+.main .angle-box {
     display: flex;
-    width: 26.666%;
-    position: absolute;
+    width: 200px;
+    position: fixed;
     bottom: 0;
     left: 0;
     pointer-events: none;
+    z-index: 5;
 }
 
-.Heading .content .angle-box button {
+.main  .angle-box button {
     flex-basis: 50%;
     display: flex;
     margin-block-start: 0;
@@ -85,15 +87,15 @@
 
 }
 
-.Heading .content .angle-box button:active {
+.main .angle-box button:active {
     background-color: var(--gray-900);
 }
 
-.Heading .content .angle-box button:hover>img {
+.main  .angle-box button:hover>img {
     transform: scale(1.5);
 }
 
-.Heading .content .angle-box img {
+.main  .angle-box img {
     color: white;
     height: 24px;
     width: 12px;
