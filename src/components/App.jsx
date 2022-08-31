@@ -6,15 +6,27 @@ import Navbar from './Navbar'
 import data from '../data.js'
 
 function App() {
-  const id = 2
+  const [currId, setCurrId] = useState(0)
+  const id = 0
+
+  const nextHeading = () =>{
+    setCurrId(prevId => (prevId + 1) % 3)
+  }
+
+  const prevHeading = () =>{
+    const newId = currId === 0 ? 2 : currId -1
+    setCurrId(newId)
+  }
 
   return (
     <div id="App">
       <Navbar/>
       <Header
-      title = {data[id].title}
-      content = {data[id].content}
-      id = {data[id].id}
+      title = {data[currId].title}
+      content = {data[currId].content}
+      id = {data[currId].id}
+      nextHeading = {nextHeading}
+      prevHeading = {prevHeading}
 
       />
       <Footer/>

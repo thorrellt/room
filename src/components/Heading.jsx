@@ -30,7 +30,7 @@ export default function Header(props) {
 
 
     return (
-        <section id="Heading">
+        <section className = {`Heading heading${id}`}>
             <div className="img">
                 <img src={heroImg} alt="hero image" />
             </div>
@@ -48,12 +48,12 @@ export default function Header(props) {
                     <img className='arrow' src={arrow} alt="" />
                 </a>
                 <div className="angle-box">
-                    <a href="#">
+                    <button href="#">
                     <img src={leftAngle} alt="" />
-                    </a>
-                    <a href="#">
+                    </button>
+                    <button href="#">
                     <img src={rightAngle} alt="" />
-                    </a>
+                    </button>
                 </div>
 
 

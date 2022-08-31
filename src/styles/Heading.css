@@ -1,4 +1,4 @@
-#Heading .img{
+.Heading .img{
     height: 100%;
     flex-basis: 52.5rem;
     flex-shrink: 1;
@@ -7,7 +7,7 @@
     /* outline: 3px, solid black; */
 }
 
-#Heading .content{
+.Heading .content{
     position: relative;
     height: 100%;
     flex-basis: 37.5rem;
@@ -19,47 +19,54 @@
     /* outline: 3px, solid black; */
 }
 
-#Heading .content p{
+.Heading .content p{
     margin-block-start: 1.125rem;
 }
 
-#Heading .content a{
+.Heading .content a{
     position: relative;
     margin-block-start: 1.625rem;
     text-decoration: none;
     display: flex;
 }
 
-#Heading .content h3{
+.Heading .content h3{
     
     text-transform: uppercase;
 }
 
-#Heading .content .arrow{
+.Heading .content .arrow{
     margin-inline-start: 1.875rem;
     height: .75rem;
     width: 2.5rem;
 }
 
-#Heading .content .angle-box{
+.Heading .content .angle-box{
     display: flex;
     width: 26.666%;
-    background-color: black;
     position: absolute;
     bottom: 0;
     left: 0;
+    pointer-events: none;
 }
 
-#Heading .content .angle-box a{
+.Heading .content .angle-box button{
     flex-basis: 50%;
+    display: flex;
     margin-block-start: 0;
     justify-content: center;
     align-items: center;
     background-color: black;
     height: 80px;
+    cursor:pointer;
+    pointer-events: auto;
 }
 
-#Heading .content .angle-box img{
+.Heading .content .angle-box button:active{
+    background-color: var(--gray-900);
+}
+
+.Heading .content .angle-box img{
     color: white;
     height: 24px;
     width: 12px;
