@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import '../styles/Heading.css'
-import mainImg1 from '../assets/desktop-image-hero-1.jpg'
+import heroImg0 from '../assets/desktop-image-hero-1.jpg'
+import heroImg1 from '../assets/desktop-image-hero-2.jpg'
+import heroImg2 from '../assets/desktop-image-hero-3.jpg'
 import aboutDark from '../assets/image-about-dark.jpg'
 import aboutLight from '../assets/image-about-light.jpg'
 import arrow from '../assets/icon-arrow.svg'
@@ -8,19 +10,36 @@ import leftAngle from '../assets/icon-angle-left.svg'
 import rightAngle from '../assets/icon-angle-right.svg'
 
 
-export default function Header() {
+export default function Header(props) {
+    const {title, content, id} = props
+    let heroImg
+    switch(id){
+        case 0:{
+            heroImg = heroImg0;
+            break;
+        }
+        case 1:{
+            heroImg = heroImg1;
+            break;
+        }
+        default:{
+            heroImg = heroImg2;
+            break;
+        }
+    }
+
 
     return (
         <section id="Heading">
             <div className="img">
-                <img src={mainImg1} alt="main image" />
+                <img src={heroImg} alt="hero image" />
             </div>
             <div className="content">
                 <h1>
-                    Discover innovative
+                    {title}
                 </h1>
                 <p>
-                    We provide unmatched quality, comfort, and style for property owners across the country. Our experts combine form and function in bringing your vision to life. Create a room in your own style with our collection and make your property a reflection of you and what you love.
+                    {content}
                 </p>
                 <a href="#">
                     <h3>
