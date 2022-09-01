@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import {
     TransitionGroup,
     SwitchTransition,
@@ -19,14 +19,17 @@ import data from '../data.js'
 export default function Header(props) {
 
 
-    const { title, content, id } = props
-    const [currId, setCurrId] = useState(() => 1)
-    const [inProp, setInProp] = useState(false);
-    const [inProp0, setInProp0] = useState(false);
-    const [inProp1, setInProp1] = useState(false);
-    const [inProp2, setInProp2] = useState(false);
+    const { title, content, id, slideState, slideLeft, slideRight } = props
+
+    const [usedId, setUsedId] = useState(1)
+    
+
+    useEffect(() => {
+        if(usedId !== slideState.currId) setUsedId(slideState.currId)
+    },[slideState])
+
     let heroImg
-    switch (currId) {
+    switch (usedId) {
         case 0: {
             heroImg = heroImg0;
             break;
@@ -41,25 +44,20 @@ export default function Header(props) {
         }
     }
 
-    const nextHeading = () => {
-        setCurrId(prevId => (prevId + 1) % 3)
-    }
 
-    const prevHeading = () => {
-        const newId = currId === 0 ? 2 : currId - 1
-        setCurrId(newId)
-    }
+
 
     return (
 
-        <section className={`Heading heading${currId}`}>
+        <section className={`Heading`}>
             <div className="img">
                 <TransitionGroup>
                     <CSSTransition
-                        key={String(currId)}
+                        key={usedId}
                         timeout={700}
                         mountOnEnter
-                        classNames="heading-container">
+                        unmountOnExit
+                        classNames={slideState.direction}>
 
 
                         <img src={heroImg} alt="hero image" />
@@ -73,16 +71,17 @@ export default function Header(props) {
             <div className="content-wrapper">
                 <TransitionGroup>
                     <CSSTransition
-                        key={String(currId)}
+                        key={usedId}
                         timeout={700}
                         mountOnEnter
-                        classNames="heading-container">
+                        unmountOnExit
+                        classNames={slideState.direction}>
                         <div className="content">
                             <h1>
-                                {data[currId].title}
+                                {data[usedId].title}
                             </h1>
                             <p>
-                                {data[currId].content}
+                                {data[usedId].content}
                             </p>
                             <a href="#">
                                 <h3>
@@ -96,10 +95,10 @@ export default function Header(props) {
 
                 </TransitionGroup>
                 <div className="angle-box">
-                    <button onClick={prevHeading} href="#">
+                    <button onClick={slideLeft} href="#">
                         <img src={leftAngle} alt="" />
                     </button>
-                    <button onClick={nextHeading} href="#">
+                    <button onClick={slideRight} href="#">
                         <img src={rightAngle} alt="" />
                     </button>
                 </div>

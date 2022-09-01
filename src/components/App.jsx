@@ -11,89 +11,43 @@ import Navbar from './Navbar'
 import data from '../data.js'
 
 function App() {
-  const [currId, setCurrId] = useState(() => 0)
 
-  const [inProp, setInProp] = useState(false);
-  const id = 0
+  const [slideState, setSlideState] = useState(() => ({
+    currId: 1,
+    direction: 'slide-right'
+  }))
 
-  const nextHeading = () => {
-    setCurrId(prevId => (prevId + 1) % 3)
+  const slideRight = () => {
+    const prevId = slideState.currId
+    setSlideState(() => ({
+      currId: (prevId + 1) % 3,
+      direction: 'slide-right'
+    }))
   }
 
-  const prevHeading = () => {
-    const newId = currId === 0 ? 2 : currId - 1
-    setCurrId(newId)
+  const slideLeft = () => {
+    const newId = slideState.currId === 0 ? 2 : slideState.currId - 1
+    console.log("slideState.currId:: " + slideState.currId)
+    console.log("newId:: " + newId)
+    setSlideState(() => ({
+      currId: newId,
+      direction: 'slide-left'
+    }))
   }
-  // const useEffect(() =>{
-  //   setInProp(prevInProp =>{
-  //     return prevInProp.map(inProp, i =>{
-  //       return i === currId ? true : false
-  //     })
-  //   })
-  // },[currId])
+
+  const handleWheel = (event) => {
+    event.deltaY < 0 ? slideLeft() : slideRight()
+}
 
   return (
-    <div id="App">
+    <div id="App" onWheel={handleWheel}>
       <Navbar />
-      {/* <TransitionGroup>
-        {currId === 0 &&
-          <CSSTransition
-            in={inProp}
-            timeout={1000}
-            mountOnEnter
-            unmountOnExit
-            classNames="heading-container">
 
-            <Header
-              title={data[0].title}
-              content={data[0].content}
-              id={data[0].id}
-              nextHeading={nextHeading}
-              prevHeading={prevHeading}
-            />
-          </CSSTransition>
-        }
-        {currId === 1 &&
-          <CSSTransition
-            in={inProp}
-            timeout={1000}
-            mountOnEnter
-            unmountOnExit
-            classNames="heading-container">
-            <Header
-              title={data[1].title}
-              content={data[1].content}
-              id={data[1].id}
-              nextHeading={nextHeading}
-              prevHeading={prevHeading}
-            />
-          </CSSTransition>
-        }
-        {currId === 2 &&
-          <CSSTransition
-            in={inProp}
-            timeout={1000}
-            mountOnEnter
-            unmountOnExit
-            classNames="heading-container">
-            <Header
-              title={data[2].title}
-              content={data[2].content}
-              id={data[2].id}
-              nextHeading={nextHeading}
-              prevHeading={prevHeading}
-            />
-          </CSSTransition>
-        }
-      </TransitionGroup> */}
       <Header
-              title={data[currId].title}
-              content={data[currId].content}
-              id={data[currId].id}
-              nextHeading={nextHeading}
-              prevHeading={prevHeading}
-              currId={currId}
-            />
+        slideState = {slideState}
+        slideLeft = {slideLeft}
+        slideRight = {slideRight}
+      />
       <Footer />
     </div>
   )
