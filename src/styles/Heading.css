@@ -7,13 +7,12 @@
 }
 
 .heading-container-exit {
-    opacity: 1;
+    /* opacity: 1; */
     transform: translateX(0px);
 }
 
 .heading-container-exit-active {
     animation: exitToRight .75s ease-in-out;
-    animation-delay: 10ms;
 }
 
 @keyframes enterFromLeft {
@@ -66,7 +65,8 @@
 }
 
 .Heading .content {
-
+    position: absolute;
+    top: 0;
     padding-inline: 6.25rem;
     padding-block-start: 7.5rem;
     /* outline: 3px, solid black; */

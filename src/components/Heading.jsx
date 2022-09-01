@@ -54,11 +54,10 @@ export default function Header(props) {
 
         <section className={`Heading heading${currId}`}>
             <div className="img">
-                <SwitchTransition>
-
+                <TransitionGroup>
                     <CSSTransition
                         key={String(currId)}
-                        timeout={750}
+                        timeout={700}
                         mountOnEnter
                         classNames="heading-container">
 
@@ -66,87 +65,35 @@ export default function Header(props) {
                         <img src={heroImg} alt="hero image" />
 
                     </CSSTransition>
-                </SwitchTransition>
+                </TransitionGroup>
             </div>
 
 
 
             <div className="content-wrapper">
                 <TransitionGroup>
-                    {currId === 0 &&
-                        <CSSTransition
-                            in={inProp}
-                            timeout={1000}
-                            mountOnEnter
-                            unmountOnExit
-                            classNames="heading-container">
+                    <CSSTransition
+                        key={String(currId)}
+                        timeout={700}
+                        mountOnEnter
+                        classNames="heading-container">
+                        <div className="content">
+                            <h1>
+                                {data[currId].title}
+                            </h1>
+                            <p>
+                                {data[currId].content}
+                            </p>
+                            <a href="#">
+                                <h3>
+                                    shop now
+                                </h3>
+                                <img className='arrow' src={arrow} alt="" />
+                            </a>
+                        </div>
 
-                            <div className="content">
-                                <h1>
-                                    {data[currId].title}
-                                </h1>
-                                <p>
-                                    {data[currId].content}
-                                </p>
-                                <a href="#">
-                                    <h3>
-                                        shop now
-                                    </h3>
-                                    <img className='arrow' src={arrow} alt="" />
-                                </a>
-                            </div>
-                        </CSSTransition>
-                    }
+                    </CSSTransition>
 
-                    {currId === 1 &&
-                        <CSSTransition
-                            in={inProp}
-                            timeout={1000}
-                            mountOnEnter
-                            unmountOnExit
-                            classNames="heading-container">
-
-                            <div className="content">
-                                <h1>
-                                    {data[currId].title}
-                                </h1>
-                                <p>
-                                    {data[currId].content}
-                                </p>
-                                <a href="#">
-                                    <h3>
-                                        shop now
-                                    </h3>
-                                    <img className='arrow' src={arrow} alt="" />
-                                </a>
-                            </div>
-                        </CSSTransition>
-                    }
-
-                    {currId === 2 &&
-                        <CSSTransition
-                            in={inProp}
-                            timeout={1000}
-                            mountOnEnter
-                            unmountOnExit
-                            classNames="heading-container">
-
-                            <div className="content">
-                                <h1>
-                                    {data[currId].title}
-                                </h1>
-                                <p>
-                                    {data[currId].content}
-                                </p>
-                                <a href="#">
-                                    <h3>
-                                        shop now
-                                    </h3>
-                                    <img className='arrow' src={arrow} alt="" />
-                                </a>
-                            </div>
-                        </CSSTransition>
-                    }
                 </TransitionGroup>
                 <div className="angle-box">
                     <button onClick={prevHeading} href="#">
