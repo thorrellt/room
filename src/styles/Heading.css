@@ -132,7 +132,7 @@
 }
 
 .Heading .content h3 {
-
+    transition-duration: 300ms;
     text-transform: uppercase;
 }
 
