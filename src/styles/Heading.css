@@ -108,6 +108,8 @@
     top: 0;
     padding-inline: 6.25rem;
     padding-block-start: 7.5rem;
+    display: flex;
+    flex-direction: column;
     /* outline: 3px, solid black; */
 }
 
@@ -120,7 +122,13 @@
     position: relative;
     margin-block-start: 1.625rem;
     text-decoration: none;
+    width: fit-content;
     display: flex;
+}
+
+.Heading .content a:hover > h3,
+.Heading .content a:hover > .arrow {
+    filter: contrast(0);
 }
 
 .Heading .content h3 {
