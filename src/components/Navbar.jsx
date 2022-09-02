@@ -6,15 +6,20 @@ import close from '../assets/icon-close.svg'
 
 export default function Navbar(props) {
 
-    const windowWidth = props.windowWidth
+    const { windowWidth, navActive, toggleNav } = props
+    console.log(navActive)
+
 
     return (
         <nav>
             <img src={roomLogo} className='nav-logo' alt="" />
             {windowWidth <= 900 &&
-                <img src={hamburger}
-                    className='nav-toggle'
-                />}
+                <button onClick={toggleNav}>
+                    <img src={navActive ? close : hamburger}
+                        className='nav-toggle'
+                    />
+                </button>
+            }
 
             {windowWidth > 900 &&
                 <ul>

@@ -11,6 +11,11 @@ import Navbar from './Navbar'
 import data from '../data.js'
 
 function App() {
+  
+  const [navActive, setNavActive] = useState(false);
+  const toggleNav = () => {
+    setNavActive(prevNav => !prevNav)
+  }
 
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   useEffect(() => {
@@ -57,6 +62,8 @@ function App() {
     <div id="App" onWheel={handleWheel}>
       <Navbar 
       windowWidth={windowWidth}
+      navActive = {navActive}
+      toggleNav = {toggleNav}
       />
 
       <Header
