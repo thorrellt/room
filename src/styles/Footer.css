@@ -1,18 +1,19 @@
 #Footer .img-1 {
     flex-basis: 26.25rem;
 }
+
 #Footer .img-2 {
     flex-basis: 27.25rem;
 }
 
 #Footer .img-1,
-#Footer .img-2{
+#Footer .img-2 {
     height: 100%;
     flex-shrink: 1;
     flex-grow: 1;
 }
 
-#Footer .content{
+#Footer .content {
     height: 100%;
     flex-basis: 36.25rem;
     flex-shrink: 0;
@@ -22,7 +23,24 @@
     padding-inline: 3.125rem;
 }
 
-#Footer .content p{
+#Footer .content p {
     margin-block-start: 1rem;
     font-size: .9rem;
+}
+
+@media (max-width: 900px) {
+    #Footer .img-1 {
+        flex-basis: 31%;
+    }
+
+    #Footer .img-2 {
+        flex-basis: 29.6%;
+    }
+
+    #Footer .content {
+        flex-basis: 39.4%;
+        min-height: 300px;
+        padding-block-start: 3.125rem;
+        padding-inline: 2rem;
+    }
 }
