@@ -12,6 +12,19 @@ import data from '../data.js'
 
 function App() {
 
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  useEffect(() => {
+    function watchWidth() {
+      setWindowWidth(window.innerWidth)
+    }
+
+    window.addEventListener("resize", watchWidth)
+
+    return function () {
+      window.removeEventListener("resize", watchWidth)
+    }
+  }, [])
+
   const [slideState, setSlideState] = useState(() => ({
     currId: 1,
     direction: 'slide-right'
@@ -36,17 +49,18 @@ function App() {
   }
 
   const handleWheel = (event) => {
+    if (windowWidth > 900)
     event.deltaY < 0 ? slideLeft() : slideRight()
-}
+  }
 
   return (
     <div id="App" onWheel={handleWheel}>
       <Navbar />
 
       <Header
-        slideState = {slideState}
-        slideLeft = {slideLeft}
-        slideRight = {slideRight}
+        slideState={slideState}
+        slideLeft={slideLeft}
+        slideRight={slideRight}
       />
       <Footer />
     </div>

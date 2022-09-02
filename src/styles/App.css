@@ -3,6 +3,7 @@
     height: 100%;
     width: 100%;
 }
+
 .Heading {
     display: flex;
     position: fixed;
@@ -20,8 +21,23 @@
     width: 100%;
 }
 
-img{
+img {
     width: 100%;
-    height: 100%; 
+    height: 100%;
     object-fit: cover;
+}
+
+@media (max-width: 900px) {
+    .Heading {
+        position: relative;
+        flex-direction: column;
+        height: 100%;
+    }
+
+    #Footer {
+        position: relative;
+        flex-direction: column;
+        height: 100%;
+    }
+
 }
