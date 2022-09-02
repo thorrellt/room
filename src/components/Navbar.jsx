@@ -20,9 +20,14 @@ export default function Navbar(props) {
                     />
                 </button>
             }
-
-            {windowWidth > 900 &&
-                <ul>
+                <ul className={navActive ? 'show' : 'hidden'}>
+                {windowWidth <= 900 && navActive &&
+                <button className='nav-toggle-btn' onClick={toggleNav}>
+                    <img src={close}
+                        className='nav-toggle'
+                    />
+                </button>
+            }
                     <li>
                         <a href="#">
                             home
@@ -43,7 +48,7 @@ export default function Navbar(props) {
                             contact
                         </a>
                     </li>
-                </ul>}
+                </ul>
         </nav>
     )
 

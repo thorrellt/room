@@ -12,7 +12,7 @@ import data from '../data.js'
 
 function App() {
   
-  const [navActive, setNavActive] = useState(false);
+  const [navActive, setNavActive] = useState(true);
   const toggleNav = () => {
     setNavActive(prevNav => !prevNav)
   }
