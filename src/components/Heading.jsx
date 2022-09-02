@@ -19,14 +19,14 @@ import data from '../data.js'
 export default function Header(props) {
 
 
-    const { title, content, id, slideState, slideLeft, slideRight } = props
+    const { windowWidth, slideState, slideLeft, slideRight } = props
 
     const [usedId, setUsedId] = useState(1)
-    
+
 
     useEffect(() => {
-        if(usedId !== slideState.currId) setUsedId(slideState.currId)
-    },[slideState])
+        if (usedId !== slideState.currId) setUsedId(slideState.currId)
+    }, [slideState])
 
     let heroImg
     switch (usedId) {
@@ -64,6 +64,15 @@ export default function Header(props) {
 
                     </CSSTransition>
                 </TransitionGroup>
+                {windowWidth <= 900 &&
+                    <div className="angle-box">
+                        <button onClick={slideLeft} href="#">
+                            <img src={leftAngle} alt="" />
+                        </button>
+                        <button onClick={slideRight} href="#">
+                            <img src={rightAngle} alt="" />
+                        </button>
+                    </div>}
             </div>
 
 
@@ -94,14 +103,15 @@ export default function Header(props) {
                     </CSSTransition>
 
                 </TransitionGroup>
-                <div className="angle-box">
-                    <button onClick={slideLeft} href="#">
-                        <img src={leftAngle} alt="" />
-                    </button>
-                    <button onClick={slideRight} href="#">
-                        <img src={rightAngle} alt="" />
-                    </button>
-                </div>
+                {windowWidth > 900 &&
+                    <div className="angle-box">
+                        <button onClick={slideLeft} href="#">
+                            <img src={leftAngle} alt="" />
+                        </button>
+                        <button onClick={slideRight} href="#">
+                            <img src={rightAngle} alt="" />
+                        </button>
+                    </div>}
             </div>
 
 

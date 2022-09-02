@@ -61,6 +61,7 @@ function App() {
         slideState={slideState}
         slideLeft={slideLeft}
         slideRight={slideRight}
+        windowWidth = {windowWidth}
       />
       <Footer />
     </div>

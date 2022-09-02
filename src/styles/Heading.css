@@ -221,5 +221,37 @@
         /* outline: 3px, solid black; */
     }
 
+    .Heading .angle-box {
+        display: flex;
+        width: 7rem;
+        height: 3.5rem;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        left: auto;
+        pointer-events: none;
+        z-index: 5;
+    }
+    
+    .Heading .angle-box button {
+        flex-basis: 50%;
+        display: flex;
+        margin-block-start: 0;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        height: 100%;
+        cursor: pointer;
+        pointer-events: auto;
+    
+    }
+
+    .Heading .angle-box img {
+        color: white;
+        height: 33%;
+        width: 16%;
+        width: 12px;
+        transition: all .2s ease-in-out;
+    }
 
 }
