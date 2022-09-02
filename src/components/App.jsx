@@ -55,7 +55,9 @@ function App() {
 
   return (
     <div id="App" onWheel={handleWheel}>
-      <Navbar />
+      <Navbar 
+      windowWidth={windowWidth}
+      />
 
       <Header
         slideState={slideState}
