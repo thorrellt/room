@@ -12,7 +12,7 @@ import data from '../data.js'
 
 function App() {
   
-  const [navActive, setNavActive] = useState(true);
+  const [navActive, setNavActive] = useState(false);
   const toggleNav = () => {
     setNavActive(prevNav => !prevNav)
   }
@@ -31,7 +31,7 @@ function App() {
   }, [])
 
   const [slideState, setSlideState] = useState(() => ({
-    currId: 1,
+    currId: 0,
     direction: 'slide-right'
   }))
 

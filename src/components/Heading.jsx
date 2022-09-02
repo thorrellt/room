@@ -21,7 +21,7 @@ export default function Header(props) {
 
     const { windowWidth, slideState, slideLeft, slideRight } = props
 
-    const [usedId, setUsedId] = useState(1)
+    const [usedId, setUsedId] = useState(0)
 
 
     useEffect(() => {
