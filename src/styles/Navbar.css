@@ -60,12 +60,12 @@ nav ul li a:hover {
         margin-inline: 0.938rem;
     }
 
-    nav ul li a{
+    nav ul li a {
         color: black;
         font-size: 1rem;
         line-height: 0.938rem;
         font-weight: 600;
-        letter-spacing:0.042rem ;
+        letter-spacing: 0.042rem;
     }
 
     nav {
@@ -86,7 +86,7 @@ nav ul li a:hover {
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        
+
         /* margin-inline: auto; */
     }
 
@@ -96,6 +96,7 @@ nav ul li a:hover {
         height: .875rem;
         z-index: 4;
     }
+
     .nav-toggle-btn {
         display: inline-flex;
         justify-self: flex-start;
@@ -103,41 +104,67 @@ nav ul li a:hover {
         z-index: 4;
     }
 
-    .slide-right-enter {
+    .nav-toggle-btn-enter {
         opacity: 0;
+        transform: scale(0);
     }
-    
-    .slide-right-enter-active {
-        animation: enterFromLeft .75s ease-in-out;
+
+    .nav-toggle-btn-enter-active {
+        animation: fadeIn .3s ease-in-out;
     }
-    
-    .slide-right-exit {
-        /* opacity: 1; */
-        transform: translateX(0px);
+
+    .nav-toggle-btn-exit {
+        opacity: 1;
+        transform: scale(1);
     }
-    
-    .slide-right-exit-active {
-        animation: exitToRight .75s ease-in-out;
+
+    .nav-toggle-btn-exit-active {
+        animation: fadeOut .3s ease-in-out;
     }
-    
+
+    @keyframes fadeIn {
+        0% {
+            opacity: 0;
+            transform: scale(0);
+        }
+
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes fadeOut {
+        0% {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        100% {
+            opacity: 0;
+            transform: scale(0);
+        }
+    }
+
+
     @keyframes enterFromTop {
         0% {
             transform: translateY(-100%);
             opacity: 0;
         }
-    
+
         100% {
             transform: translateY(0px);
             opacity: 1;
         }
     }
-    
+
     @keyframes exitToTop {
         0% {
             transform: translateY(0px);
             opacity: 1;
         }
-    
+
         100% {
             transform: translateY(-100%);
             opacity: 0;
@@ -145,7 +172,7 @@ nav ul li a:hover {
         }
     }
 
-    .hidden{
+    .hidden {
         transform: translateY(-100%);
         animation: exitToTop .5s ease-in-out;
         /* top: -200px; */
