@@ -45,10 +45,22 @@ export default function Navbar(props) {
                     <a href="#">shop</a>
                 </li>
                 <li>
-                    <a href="#">about</a>
+                    <a
+                        href="https://github.com/thorrellt/room"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        alt="github.com/thorrellt/room" title="github.com/thorrellt/room">
+                        repo
+                    </a>
                 </li>
                 <li>
-                    <a href="#">contact</a>
+                    <a
+                        href="https://thorrellt.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        alt="thorrellt.com" title="thorrellt.com">
+                        author
+                    </a>
                 </li>
             </ul>
         </nav>
