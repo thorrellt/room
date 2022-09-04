@@ -101,5 +101,6 @@ nav ul li a:hover {
         display: inline-flex;
         justify-self: flex-start;
         margin-right: auto;
+        z-index: 4;
     }
 }
