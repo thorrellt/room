@@ -40,34 +40,11 @@ nav ul li a:hover {
     font-size: 1.2rem;
 }
 
+/***************
+  MOBILE STYLES 
+ ***************/
+
 @media (max-width: 900px) {
-    nav ul {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 14.3%;
-        z-index: 3;
-        width: 100%;
-        align-items: center;
-        justify-content: flex-end;
-        background-color: white;
-        transform: translateY(0px);
-        animation: enterFromTop .5s ease-in-out;
-
-    }
-
-    nav ul li {
-        margin-inline: 0.938rem;
-    }
-
-    nav ul li a {
-        color: black;
-        font-size: 1rem;
-        line-height: 0.938rem;
-        font-weight: 600;
-        letter-spacing: 0.042rem;
-    }
-
     nav {
         width: 22.625rem;
         position: fixed;
@@ -90,18 +67,55 @@ nav ul li a:hover {
         /* margin-inline: auto; */
     }
 
-    .nav-toggle {
+    .nav-toggle-btn {
+        display: inline-flex;
+        justify-self: flex-start;
+        margin-right: auto;
+        z-index: 4;
+    }
+
+    .nav-toggle-btn img {
         margin-inline-start: 1.5rem;
         width: 1.25rem;
         height: .875rem;
         z-index: 4;
     }
 
-    .nav-toggle-btn {
-        display: inline-flex;
-        justify-self: flex-start;
-        margin-right: auto;
-        z-index: 4;
+    nav ul {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 14.3%;
+        z-index: 3;
+        width: 100%;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: white;
+        transform: translateY(0px);
+        animation: enterFromTop .5s ease-in-out;
+    }
+
+    nav ul li {
+        margin-inline: 0.938rem;
+    }
+
+    nav ul li a {
+        color: black;
+        font-size: 1rem;
+        line-height: 0.938rem;
+        font-weight: 600;
+        letter-spacing: 0.042rem;
+    }
+
+
+    /************
+      ANIMATIONS
+     ************/
+
+    /* Animation Classes */
+    .hidden {
+        transform: translateY(-100%);
+        animation: exitToTop .5s ease-in-out;
     }
 
     .nav-toggle-btn-enter {
@@ -122,6 +136,8 @@ nav ul li a:hover {
         animation: fadeOut .3s ease-in-out;
     }
 
+
+    /* Animations */
     @keyframes fadeIn {
         0% {
             opacity: 0;
@@ -145,7 +161,6 @@ nav ul li a:hover {
             transform: scale(0);
         }
     }
-
 
     @keyframes enterFromTop {
         0% {
@@ -172,9 +187,5 @@ nav ul li a:hover {
         }
     }
 
-    .hidden {
-        transform: translateY(-100%);
-        animation: exitToTop .5s ease-in-out;
-        /* top: -200px; */
-    }
+    
 }

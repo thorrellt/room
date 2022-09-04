@@ -70,8 +70,6 @@ function App() {
   //onClick function to slide left
   const slideLeft = () => {
     const newId = slideState.currId === 0 ? 2 : slideState.currId - 1
-    console.log("slideState.currId:: " + slideState.currId)
-    console.log("newId:: " + newId)
     setSlideState(() => ({
       currId: newId,
       direction: 'slide-left'

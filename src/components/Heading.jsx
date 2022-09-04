@@ -61,7 +61,7 @@ export default function Header(props) {
 
     return (
         <section className={`Heading`}>
-            <div className="img">
+            <div className="hero-img-wrapper">
                 {/* hero image animation logic */}
                 <TransitionGroup>
                     <CSSTransition

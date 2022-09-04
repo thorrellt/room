@@ -28,6 +28,9 @@
     font-size: .9rem;
 }
 
+/***************
+  MOBILE STYLES 
+ ***************/
 @media (max-width: 900px) {
     #Footer .img-1 {
         flex-basis: 31%;

@@ -27,6 +27,9 @@ img {
     object-fit: cover;
 }
 
+/***************
+  MOBILE STYLES 
+ ***************/
 @media (max-width: 900px) {
     .Heading {
         position: relative;

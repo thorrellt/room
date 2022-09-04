@@ -12,9 +12,9 @@ import close from '../assets/icon-close.svg'
 export default function Navbar(props) {
 
     const {
-        windowWidth, 
-        navActive, 
-        toggleNav 
+        windowWidth,
+        navActive,
+        toggleNav
     } = props
 
     return (
@@ -22,20 +22,19 @@ export default function Navbar(props) {
             <img src={roomLogo} className='nav-logo' alt="" />
 
             {/* mobile menu toggle button animation logic */}
-            <SwitchTransition>
-                <CSSTransition
-                key={navActive}
-                classNames='nav-toggle-btn'
-                timeout={250}>
-                    {windowWidth <= 900 &&
+            {windowWidth <= 900 &&
+                <SwitchTransition>
+                    <CSSTransition
+                        key={navActive}
+                        classNames='nav-toggle-btn'
+                        timeout={250}>
                         <button onClick={toggleNav} className='nav-toggle-btn'>
-                            <img src={navActive ? close : hamburger}
-                                className='nav-toggle'
-                            />
+                            <img src={navActive ? close : hamburger} />
                         </button>
-                    }
-                </CSSTransition>
-            </SwitchTransition>
+
+                    </CSSTransition>
+                </SwitchTransition>
+            }
 
 
             <ul className={navActive ? '' : 'hidden'}>

@@ -1,87 +1,4 @@
-.slide-right-enter {
-    opacity: 0;
-}
-
-.slide-right-enter-active {
-    animation: enterFromLeft .75s ease-in-out;
-}
-
-.slide-right-exit {
-    /* opacity: 1; */
-    transform: translateX(0px);
-}
-
-.slide-right-exit-active {
-    animation: exitToRight .75s ease-in-out;
-}
-
-@keyframes enterFromLeft {
-    0% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
-
-@keyframes exitToRight {
-    0% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-}
-
-
-
-.slide-left-enter {
-    opacity: 0;
-}
-
-.slide-left-enter-active {
-    animation: enterFromRight .75s ease-in-out;
-}
-
-.slide-left-exit {
-    transform: translateX(0px);
-}
-
-.slide-left-exit-active {
-    animation: exitToLeft .75s ease-in-out;
-}
-
-@keyframes enterFromRight {
-    0% {
-        transform: translateX(100%);
-        opacity: 0;
-    }
-
-    100% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-}
-
-@keyframes exitToLeft {
-    0% {
-        transform: translateX(0px);
-        opacity: 1;
-    }
-
-    100% {
-        transform: translateX(-100%);
-        opacity: 0;
-    }
-}
-
-.Heading .img {
+.Heading .hero-img-wrapper {
     position: relative;
     height: 100%;
     flex-basis: 52.5rem;
@@ -91,7 +8,7 @@
     /* outline: 3px, solid black; */
 }
 
-.Heading .img img {
+.Heading .hero-img-wrapper img {
     position: absolute;
     height: 100%;
 }
@@ -116,7 +33,6 @@
     /* outline: 3px, solid black; */
 }
 
-
 .Heading .content p {
     margin-block-start: 1.125rem;
 }
@@ -134,12 +50,12 @@
     filter: contrast(0);
 }
 
-.Heading .content h3 {
+.Heading .content a h3 {
     transition-duration: 300ms;
     text-transform: uppercase;
 }
 
-.Heading .content .arrow {
+.Heading .content a .arrow {
     margin-inline-start: 1.875rem;
     height: .75rem;
     width: 2.5rem;
@@ -173,10 +89,6 @@
     background-color: var(--gray-900);
 }
 
-.Heading .angle-box button:hover>img {
-    transform: scale(1.5);
-}
-
 .Heading .angle-box img {
     color: white;
     height: 24px;
@@ -184,9 +96,106 @@
     transition: all .2s ease-in-out;
 }
 
+.Heading .angle-box button:hover>img {
+    transform: scale(1.5);
+}
 
+
+/************
+  ANIMATIONS
+ ************/
+
+/* Animation Classes */
+.slide-right-enter {
+    opacity: 0;
+}
+
+.slide-right-enter-active {
+    animation: enterFromLeft .75s ease-in-out;
+}
+
+.slide-right-exit {
+    /* opacity: 1; */
+    transform: translateX(0px);
+}
+
+.slide-right-exit-active {
+    animation: exitToRight .75s ease-in-out;
+}
+
+.slide-left-enter {
+    opacity: 0;
+}
+
+.slide-left-enter-active {
+    animation: enterFromRight .75s ease-in-out;
+}
+
+.slide-left-exit {
+    transform: translateX(0px);
+}
+
+.slide-left-exit-active {
+    animation: exitToLeft .75s ease-in-out;
+}
+
+
+/* Animations */
+@keyframes enterFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes enterFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes exitToRight {
+    0% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes exitToLeft {
+    0% {
+        transform: translateX(0px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+}
+
+
+
+/***************
+  MOBILE STYLES 
+ ***************/
 @media (max-width: 900px) {
-    .Heading .img {
+    .Heading .hero-img-wrapper {
         position: relative;
         width: 100%;
         /* height: 46.75%; */
@@ -196,7 +205,8 @@
         overflow: hidden;
         /* outline: 3px, solid black; */
     }
-    .Heading .img img{
+
+    .Heading .hero-img-wrapper img {
         height: 100%;
     }
 
@@ -218,7 +228,6 @@
         padding-block-end: 4.5rem;
         display: flex;
         flex-direction: column;
-        /* outline: 3px, solid black; */
     }
 
     .Heading .angle-box {
@@ -232,7 +241,7 @@
         pointer-events: none;
         z-index: 5;
     }
-    
+
     .Heading .angle-box button {
         flex-basis: 50%;
         display: flex;
@@ -243,7 +252,7 @@
         height: 100%;
         cursor: pointer;
         pointer-events: auto;
-    
+
     }
 
     .Heading .angle-box img {
@@ -252,6 +261,14 @@
         width: 16%;
         width: 12px;
         transition: all .2s ease-in-out;
+    }
+
+    .Heading .angle-box button:hover>img {
+        transform: scale(1);
+    }
+
+    .Heading .angle-box button:active>img {
+        transform: scale(1.5);
     }
 
 }
