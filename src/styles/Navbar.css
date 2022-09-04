@@ -51,6 +51,9 @@ nav ul li a:hover {
         align-items: center;
         justify-content: flex-end;
         background-color: white;
+        transform: translateY(0px);
+        animation: enterFromTop .5s ease-in-out;
+
     }
 
     nav ul li {
@@ -63,10 +66,6 @@ nav ul li a:hover {
         line-height: 0.938rem;
         font-weight: 600;
         letter-spacing:0.042rem ;
-    }
-
-    .hidden{
-        top: -200px;
     }
 
     nav {
@@ -102,5 +101,53 @@ nav ul li a:hover {
         justify-self: flex-start;
         margin-right: auto;
         z-index: 4;
+    }
+
+    .slide-right-enter {
+        opacity: 0;
+    }
+    
+    .slide-right-enter-active {
+        animation: enterFromLeft .75s ease-in-out;
+    }
+    
+    .slide-right-exit {
+        /* opacity: 1; */
+        transform: translateX(0px);
+    }
+    
+    .slide-right-exit-active {
+        animation: exitToRight .75s ease-in-out;
+    }
+    
+    @keyframes enterFromTop {
+        0% {
+            transform: translateY(-100%);
+            opacity: 0;
+        }
+    
+        100% {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    }
+    
+    @keyframes exitToTop {
+        0% {
+            transform: translateY(0px);
+            opacity: 1;
+        }
+    
+        100% {
+            transform: translateY(-100%);
+            opacity: 0;
+            top: -200px;
+        }
+    }
+
+    .hidden{
+        transform: translateY(-100%);
+        animation: exitToTop .5s ease-in-out;
+        /* top: -200px; */
     }
 }
