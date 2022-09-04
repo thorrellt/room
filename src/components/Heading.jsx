@@ -19,15 +19,30 @@ import data from '../data.js'
 export default function Header(props) {
 
 
-    const { windowWidth, slideState, slideLeft, slideRight } = props
+    const {
+        windowWidth,
+        slideState,
+        slideLeft,
+        slideRight
+    } = props
 
+    /**
+     * manages the current slide id so that 
+     * slideState.currId updates AFTER the 
+     * slide direction. if not, direction is
+     * wrong on first click.
+     */
     const [usedId, setUsedId] = useState(0)
-
-
     useEffect(() => {
         if (usedId !== slideState.currId) setUsedId(slideState.currId)
     }, [slideState])
 
+    /**
+     * manages what img to load b/c the data
+     * is loaded from another file. Cant ref imgs by
+     * path without making them public. Chose to make
+     * the 3 imgs consts and assign them thru a switch.
+     */
     let heroImg
     switch (usedId) {
         case 0: {
@@ -44,13 +59,10 @@ export default function Header(props) {
         }
     }
 
-
-
-
     return (
-
         <section className={`Heading`}>
             <div className="img">
+                {/* hero image animation logic */}
                 <TransitionGroup>
                     <CSSTransition
                         key={usedId}
@@ -58,12 +70,11 @@ export default function Header(props) {
                         mountOnEnter
                         unmountOnExit
                         classNames={slideState.direction}>
-
-
                         <img src={heroImg} alt="hero image" />
-
                     </CSSTransition>
                 </TransitionGroup>
+
+                {/* angle box for mobile ONLY */}
                 {windowWidth <= 900 &&
                     <div className="angle-box">
                         <button onClick={slideLeft} href="#">
@@ -76,8 +87,8 @@ export default function Header(props) {
             </div>
 
 
-
             <div className="content-wrapper">
+                {/* main content animation logic */}
                 <TransitionGroup>
                     <CSSTransition
                         key={usedId}
@@ -86,23 +97,17 @@ export default function Header(props) {
                         unmountOnExit
                         classNames={slideState.direction}>
                         <div className="content">
-                            <h1>
-                                {data[usedId].title}
-                            </h1>
-                            <p>
-                                {data[usedId].content}
-                            </p>
+                            <h1>{data[usedId].title}</h1>
+                            <p>{data[usedId].content}</p>
                             <a href="#">
-                                <h3>
-                                    shop now
-                                </h3>
+                                <h3>shop now</h3>
                                 <img className='arrow' src={arrow} alt="" />
                             </a>
                         </div>
-
                     </CSSTransition>
-
                 </TransitionGroup>
+
+                {/* angle box for desktop ONLY */}
                 {windowWidth > 900 &&
                     <div className="angle-box">
                         <button onClick={slideLeft} href="#">
@@ -113,11 +118,6 @@ export default function Header(props) {
                         </button>
                     </div>}
             </div>
-
-
-
         </section>
     )
-
-
 }

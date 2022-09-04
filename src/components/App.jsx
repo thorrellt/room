@@ -12,12 +12,33 @@ import data from '../data.js'
 
 function App() {
   
+  /********
+    STATES
+   ********/
+  //Mobile NavBar is active or hidden
   const [navActive, setNavActive] = useState(false);
+
+  //Used to implement mobile design features
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   const toggleNav = () => {
     setNavActive(prevNav => !prevNav)
   }
 
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  /**
+   * Manages the slide
+   * currId is which slide is currently showing
+   * direction is which way the prevSlide should exit
+   */
+  const [slideState, setSlideState] = useState(() => ({
+    currId: 0,
+    direction: 'slide-right'
+  }))
+
+
+  /***********************
+    FUNCTIONS & LISTENERS
+   ***********************/
+  //Update windowWidth State on width Change
   useEffect(() => {
     function watchWidth() {
       setWindowWidth(window.innerWidth)
@@ -30,11 +51,14 @@ function App() {
     }
   }, [])
 
-  const [slideState, setSlideState] = useState(() => ({
-    currId: 0,
-    direction: 'slide-right'
-  }))
+  //mouse wheel scroll slides main right & left
+  const handleWheel = (event) => {
+    if (windowWidth > 900)
+    event.deltaY < 0 ? slideLeft() : slideRight()
+  }
 
+
+  //onClick function to slide right
   const slideRight = () => {
     const prevId = slideState.currId
     setSlideState(() => ({
@@ -43,6 +67,7 @@ function App() {
     }))
   }
 
+  //onClick function to slide left
   const slideLeft = () => {
     const newId = slideState.currId === 0 ? 2 : slideState.currId - 1
     console.log("slideState.currId:: " + slideState.currId)
@@ -53,10 +78,6 @@ function App() {
     }))
   }
 
-  const handleWheel = (event) => {
-    if (windowWidth > 900)
-    event.deltaY < 0 ? slideLeft() : slideRight()
-  }
 
   return (
     <div id="App" onWheel={handleWheel}>
@@ -72,6 +93,7 @@ function App() {
         slideRight={slideRight}
         windowWidth = {windowWidth}
       />
+      
       <Footer />
     </div>
   )
