@@ -13,8 +13,7 @@ The room webpage is the landing page for a fictional furniture store. The design
 
 **CSS Animations:** In addition to the React Transition Groups, I used CSS animations to achieve the sliding effect. To achieve the desired outcome, I learned how the two interacted, which included slowing the animation down and observing how the DOM reacted to the exchange of components and animations.
 
-**Responsive CSS Layouts:** Responsive CSS Layouts",
-                content: "The responsive layout required using both media queries, and state management based on the window width. Combining the flex layouts and absolute positions allowed me to complete the design and sliding animation effect.
+**Responsive CSS Layouts:** The responsive layout required using both media queries, and state management based on the window width. Combining the flex layouts and absolute positions allowed me to complete the design and sliding animation effect.
   
 
 ## Installation
